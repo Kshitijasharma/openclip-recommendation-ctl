@@ -16,6 +16,24 @@ Every time I opened Amazon or Myntra, I noticed that after searching for a produ
 ## Tech Stack used:
 
 ## Concepts learned:
+To convert fashion images into numerical vectors (embeddings), this project uses OpenCLIP.
+
+### OPENCLIP: 
+OpenCLIP is a library that lets you create different CLIP models.
+For this project : ViT-B-32 + OpenAI weights are used.
+
+#### 1. ViT-B-32 — The Model Architecture
+
+- ViT stands for Vision Transformer, a deep learning model designed for image understanding.
+- B (Base) represents the model size.
+- 32 indicates that the input image is divided into 32×32 pixel patches before being processed.
+
+#### 2. pretrained="openai"
+
+- Loads the pretrained weights released by OpenAI.
+- Instead of training the model from scratch, we use these learned weights so the model already understands visual patterns and can generate meaningful image embeddings.
+
+Together, the architecture (ViT-B-32) and pretrained weights (openai) create a model capable of extracting semantic features from fashion images for retrieval and recommendation.
 
 ## Clone the repo:
 
