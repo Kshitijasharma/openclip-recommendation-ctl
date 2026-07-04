@@ -1,120 +1,188 @@
-# openclip-recommendation-system-ML
+# OpenCLIP Fashion Recommendation System
 
-AI recommendation system inspired by Walmart's Complete the Look (CTL) architecture.
-Generates complete outfit recommendations from a single uploaded fashion image using OpenCLIP, FAISS, and retrieval-based recommendation.
-Implemented based on walmart case study about their "Complete the Look (CTL) model".
+An AI-powered fashion recommendation system inspired by Walmart's **Complete the Look (CTL)** architecture. The system generates complete outfit recommendations from a single uploaded fashion image using **OpenCLIP**, **FAISS**, and a retrieval-based recommendation pipeline.
 
+This project is an independent implementation created for learning and experimentation based on Walmart Global Tech's engineering case study.
+
+**Reference:**  
 https://medium.com/walmartglobaltech/personalized-complete-the-look-model-ea093aba0b73
 
-[Dataset][https://huggingface.co/datasets/Marqo/polyvore]
-
-Building the complete application above this.
-
-## Inspiration
-This project is implemented based on Walmart's engineering case study:
-Personalized Complete the Look (CTL) Model
-
-https://medium.com/walmartglobaltech/personalized-complete-the-look-model-ea093aba0b73
-
-Although this project follows the same high-level idea of retrieval-based outfit recommendation, it is an independent implementation built for learning and experimentation.
+---
 
 ## Dataset
 
-Polyvore Dataset (Hugging Face)
+**Polyvore Dataset (Hugging Face)**
 
 https://huggingface.co/datasets/Marqo/polyvore
 
-## Backstory
+---
 
-Every time I opened Amazon or Myntra, I noticed that after searching for a product and scrolling down, there were always a few recommended items displayed below it. I never really paid much attention to those recommendations until, while preparing, I came across Walmart's engineering case study explaining how they built their Complete the Look (CTL) recommendation model.
+## Inspiration
 
-This project is my attempt to recreate the core idea using modern computer vision and vector search techniques while designing it as a modular, production-style application.
+While shopping on platforms like Amazon and Myntra, I often noticed the "Complete the Look" recommendations shown below product pages but never really thought about how they worked. During my preparation, I came across Walmart's engineering case study explaining their Complete the Look (CTL) recommendation system, which motivated me to build a similar retrieval-based recommendation engine from scratch.
 
-## Goal:
+Rather than reproducing the research notebook, the goal was to design a modular, production-style application implementing the complete recommendation pipeline.
+
+---
+
+## Goal
 
 The objective of this project is to build an end-to-end AI fashion recommendation system that:
 
-- Accepts a single uploaded fashion image
-- Converts the image into a semantic embedding using OpenCLIP
-- Retrieves visually similar products using FAISS vector search
+- Accepts a fashion image as input
+- Generates a 512-dimensional image embedding using OpenCLIP
+- Retrieves visually similar products using FAISS
 - Generates complete outfit combinations
-- Ranks and recommends the best matching outfits
+- Ranks and recommends the best outfit matches
 
-The focus was not only on recommendation quality but also on building a clean, modular architecture suitable for production environments.
+---
 
-## Tech Stack used:
+## Tech Stack
 
-Backend : Python, NumPy, Pandas
-AI : OpenCLIP, PyTorch
-Vector Search: FAISS
-Frontend: Streamlit
+**Backend**
+- Python
+- NumPy
+- Pandas
 
+**AI / Machine Learning**
+- OpenCLIP
+- PyTorch
 
+**Vector Search**
+- FAISS
 
-## Concepts learned:
+**Frontend**
+- Streamlit
+
+---
+
+## Recommendation Pipeline
+
+```text
+Uploaded Image
+        │
+        ▼
+OpenCLIP Embedding
+        │
+        ▼
+FAISS Similarity Search
+        │
+        ▼
+Candidate Selection
+        │
+        ▼
+Outfit Generation
+        │
+        ▼
+Outfit Ranking
+        │
+        ▼
+Top-2 Recommendations
+```
+
+---
+
+## Concepts Learned
 
 - Computer Vision
 - Image Embeddings
 - OpenCLIP
-- FAISS Similarity Search
+- Vision Transformers (ViT)
+- Vector Similarity Search
+- FAISS
+- Cosine Similarity
 - Retrieval-Based Recommendation Systems
-- Cnadidate Generation
+- Candidate Selection
 - Outfit Ranking
+- Modular AI System Design
 
-## OpenCLIP:
+---
 
-To convert fashion images into numerical representations, this project uses OpenCLIP.
-For this implementation:
+## OpenCLIP
 
-Model: ViT-B-32
-Pretrained Weights: OpenAI
+Fashion images are converted into numerical representations using **OpenCLIP**.
 
-## Clone the repo:
+**Model**
 
+- ViT-B-32
+
+**Pretrained Weights**
+
+- OpenAI
+
+The model generates **512-dimensional semantic embeddings**, allowing visually similar fashion products to be retrieved efficiently using vector similarity search.
+
+---
+
+## Project Structure
+
+```text
+style-ai/
+│
+├── app/
+├── backend/
+├── data/
+├── scripts/
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### Clone the repository
+
+```bash
 git clone https://github.com/<your-username>/openclip-fashion-recommendation-system.git
 
 cd openclip-fashion-recommendation-system
+```
 
-Install dependencies
+### Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-Run the application
+### Run the application
 
+```bash
 streamlit run app/main.py
+```
 
-## Results:
+---
 
-The system accepts a single fashion image as input and recommends complementary outfit combinations using retrieval-based AI.
+## Results
 
-Home page:
+The application accepts a single uploaded fashion image and recommends complementary outfit combinations using a retrieval-based recommendation pipeline.
+
+### Home Page
 
 <img width="997" height="307" alt="home" src="https://github.com/user-attachments/assets/2951db2b-8a78-4ee8-bbbc-b9db13bd8cbb" />
 
-Case1:
+### Example 1
 
 <img width="1025" height="331" alt="6" src="https://github.com/user-attachments/assets/b1ff50ff-d8ca-4b20-8088-0d097d08efc2" />
 
-Case2:
+### Example 2
 
 <img width="1025" height="359" alt="5" src="https://github.com/user-attachments/assets/83f7a95a-871d-41a1-8eeb-f7f5b770227f" />
 
-Case3:
+### Example 3
 
 <img width="1022" height="353" alt="5 1" src="https://github.com/user-attachments/assets/79589093-9b36-48ac-a628-0fcff30cd6c8" />
 
-## Acknowledgements:
-Walmart Global Tech – Complete the Look (CTL) engineering case study
-OpenCLIP
-FAISS
-Hugging Face Datasets
-Polyvore Dataset
+---
 
-#### Feel free to contribute or any feedbacks. :)
+## Acknowledgements
 
+- Walmart Global Tech — Complete the Look (CTL) Case Study
+- OpenCLIP
+- FAISS
+- Hugging Face Datasets
+- Polyvore Dataset
 
+---
 
-
-
-
-
+Contributions, suggestions, and feedback are always welcome.
