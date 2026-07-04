@@ -99,18 +99,20 @@ Top-2 Recommendations
 ---
 
 ## OpenCLIP
+OpenCLIP is used to convert fashion images into semantic feature vectors.
 
-Fashion images are converted into numerical representations using **OpenCLIP**.
+This project uses the **ViT-B-32** architecture with **OpenAI pretrained weights** to generate **512-dimensional image embeddings**. These embeddings capture high-level visual characteristics such as color, texture, shape, and clothing style, allowing visually similar products to be retrieved without relying on handcrafted features.
 
-**Model**
+The embeddings are generated offline and reused during inference, enabling efficient real-time recommendations.
 
-- ViT-B-32
+---
+## FAISS
 
-**Pretrained Weights**
+FAISS (Facebook AI Similarity Search) is a library for efficient similarity search over high-dimensional vectors.
 
-- OpenAI
+Instead of comparing the uploaded image embedding against every fashion item manually, the application stores precomputed **512-dimensional OpenCLIP embeddings** in a FAISS index (`IndexFlatIP`). During inference, the uploaded image is converted into an embedding and the index retrieves the **Top-K most visually similar products** using cosine similarity.
 
-The model generates **512-dimensional semantic embeddings**, allowing visually similar fashion products to be retrieved efficiently using vector similarity search.
+This enables fast and scalable retrieval, making real-time outfit recommendation practical even for large fashion catalogs.
 
 ---
 
