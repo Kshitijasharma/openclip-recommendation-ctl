@@ -11,10 +11,9 @@ __pycache__/
 
 # Large data and models directories (modify if you want to track them)
 data/
-models/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
+
+
 
 # OS files
 .DS_Store
