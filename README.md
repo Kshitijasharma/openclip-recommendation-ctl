@@ -119,11 +119,12 @@ This enables fast and scalable retrieval, making real-time outfit recommendation
 ## Project Structure
 
 ```text
-style-ai/
+project/
 │
 ├── app/
 ├── backend/
 ├── data/
+├── models/
 ├── scripts/
 ├── requirements.txt
 └── README.md
